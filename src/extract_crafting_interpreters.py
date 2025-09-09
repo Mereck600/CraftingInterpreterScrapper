@@ -44,6 +44,18 @@ def slugify(s: str) -> str:
     s = re.sub(r"-{2,}", "-", s)             # collapse repeats
     return s.strip("-._")
 
+def normalize_code_text(s: str) -> str:
+    # Replace right-arrow variants with ASCII '->'
+    replacements = {
+        "\u2192": "->",  # → (RIGHTWARDS ARROW)
+        "â†’": "->",     # mojibake for →
+        "&rarr;": "->",  # just in case an HTML entity slips through
+    }
+    for bad, good in replacements.items():
+        s = s.replace(bad, good)
+    return s
+
+
 def get_soup(url, session, retries=3, sleep=0.7):
     for i in range(retries):
         try:
@@ -165,6 +177,8 @@ def extract_blocks(chapter_url, session):
         text = ''.join(block.strings).replace('\r\n', '\n').replace('\xa0', ' ')
         if text.endswith('\n'):
             text = text[:-1]
+        text = normalize_code_text(text)
+
 
         # Skip only if truly empty. Allow short single-line <pre> blocks.
         is_pre = (el.name == "pre") or (el.find_parent("pre") is not None)
