@@ -16,3 +16,12 @@ python extract_crafting_interpreters_code.py \
       --start https://craftinginterpreters.com/contents.html
  ```
 Or just simply run the file. 
+
+If you are getting errors on a mac you may need to change 
+```
+BeautifulSoup(r.text, "lxml")
+```
+to 
+```
+BeautifulSoup(r.text, "html.parser")
+```
