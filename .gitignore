@@ -13,8 +13,8 @@ pnpm-lock.yaml
 # Python
 __pycache__/
 *.pyc
-.myvenv/
-myvenv/
+.myenv/
+myenv/
 .env
 *.egg-info/
 
@@ -34,3 +34,4 @@ Thumbs.db
 
 # Misc
 *.swp
+crafting_interpreters_code/
