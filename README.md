@@ -9,7 +9,10 @@ Set up VENV:
 Then run:
 ``` pip install requests beautifulsoup4 lxml ``
 Finally, to build the markdown files you can run:
-``` python extract_crafting_interpreters_code.py \
+
+```
+python extract_crafting_interpreters_code.py \
       --outdir crafting_interpreters_code \
-      --start https://craftinginterpreters.com/contents.html ```
+      --start https://craftinginterpreters.com/contents.html
+ ```
 Or just simply run the file. 
