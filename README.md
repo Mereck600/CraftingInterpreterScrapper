@@ -4,6 +4,10 @@
 > One markdown file per chapter
 
 ## To Use:
+Clone into this Repo 
+```
+git clone https://github.com/Mereck600/CraftingInterpreterScrapper
+```
 Set up VENV:
 ``` Python -m venv myenv ```
 Then run:
